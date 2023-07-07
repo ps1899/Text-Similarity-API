@@ -29,11 +29,13 @@ const RequestApiKey: FC<RequestApiKeyProps> = ({}) => {
           message: err.message,
           type: 'error',
         })
+
         return
       }
+
       toast({
         title: 'Error',
-        message: 'Something went Wrong..!!',
+        message: 'Something went Wrong',
         type: 'error',
       })
     } finally {
@@ -45,10 +47,10 @@ const RequestApiKey: FC<RequestApiKeyProps> = ({}) => {
     <div className='container md:max-w-2xl'>
       <div className='flex flex-col gap-6 items-center'>
         <Key className='mx-auto h-12 w-12 text-gray-400' />
-        <LargeHeading className='text-center dark:text-light-gold' >
+        <LargeHeading className='text-center'>
           Request your API Key
         </LargeHeading>
-        <Paragraph>You haven&apos;t requested an API Key yet.</Paragraph>
+        <Paragraph>You haven&apos;t requested an API Key yet</Paragraph>
       </div>
       <form
         onSubmit={createNewApiKey}
@@ -68,7 +70,7 @@ const RequestApiKey: FC<RequestApiKeyProps> = ({}) => {
           <Input
             readOnly
             value={apiKey ?? ''}
-            placeholder='Request an API Key to display it here..'
+            placeholder='Request an API Key to display it here...'
           />
         </div>
         <div className='mt-6 flex justify-center sm:mt-0 sm:ml-4 sm:flex-shrink-0'>

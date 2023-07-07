@@ -1,6 +1,6 @@
 'use client'
 import { useTheme } from 'next-themes'
-import defaultProps, { Highlight, themes } from 'prism-react-renderer'
+import { Highlight, themes } from 'prism-react-renderer'
 import type { Language } from 'prism-react-renderer';
 import { FC, useEffect, useState } from 'react'
 
@@ -45,7 +45,7 @@ const Code: FC<CodeProps> = ({
   const theme = applicationTheme === 'light' ? themes.nightOwlLight : themes.nightOwl
 
   return (
-    <Highlight {...defaultProps} code={text} language={language} theme={theme}>
+    <Highlight code={text} language={language} theme={theme}>
       {({ className, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={

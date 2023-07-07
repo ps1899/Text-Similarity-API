@@ -25,8 +25,8 @@ const MobileMenu = () => {
       await signOut()
     } catch (error) {
       toast({
-        title: 'Error signing out',
-        message: 'Please try again later.',
+        title: 'Error Signing-Out',
+        message: 'Please Try again later.',
         type: 'error',
       })
     }
@@ -72,7 +72,7 @@ const MobileMenu = () => {
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={signUserOut} className='gap-1.5'>
                 <User className='mr-2 h-5 w-5' />
-                <span>{isLoading ? 'Signing out' : 'Sign out'}</span>
+                <span>{isLoading ? 'Signing Out' : 'Sign Out'}</span>
                 {isLoading ? (
                   <Loader2 className='animate-spin h-4 w-4' />
                 ) : null}

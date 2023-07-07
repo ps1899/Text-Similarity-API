@@ -21,9 +21,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <Toaster position='bottom-right' />
-
           <MobileMenu />
-
           <main>{children}</main>
         </Providers>
 

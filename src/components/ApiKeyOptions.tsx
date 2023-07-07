@@ -20,7 +20,7 @@ interface ApiKeyOptionsProps {
   apiKeyKey: string
 }
 
-const ApiKeyOptions: FC<ApiKeyOptionsProps> = ({ apiKeyId, apiKeyKey }) => {
+const ApiKeyOptions: FC<ApiKeyOptionsProps> = ({ apiKeyKey }) => {
   const router = useRouter()
   const [isCreatingNew, setIsCreatingNew] = useState<boolean>(false)
   const [isRevoking, setIsRevoking] = useState<boolean>(false)
@@ -28,15 +28,15 @@ const ApiKeyOptions: FC<ApiKeyOptionsProps> = ({ apiKeyId, apiKeyKey }) => {
   const createNewApiKey = async () => {
     setIsCreatingNew(true)
     try {
-      await revokeApiKey({keyId: apiKeyId})
+      await revokeApiKey({keyId: apiKeyKey})
       await createApiKey()
       router.refresh()
     } catch (error) {
-        toast({
-          title: 'Error creating new API Key..!!',
-          message: 'Please try again later.',
-          type: 'error',
-        })
+      toast({
+        title: 'Error creating new API Key..!!',
+        message: 'Please Try again later.',
+        type: 'error',
+      })
     } finally {
       setIsCreatingNew(false)
     }
@@ -45,14 +45,14 @@ const ApiKeyOptions: FC<ApiKeyOptionsProps> = ({ apiKeyId, apiKeyKey }) => {
   const revokeCurrentApiKey = async () => {
     setIsRevoking(true)
     try {
-      await revokeApiKey({keyId: apiKeyId})
+      await revokeApiKey({keyId: apiKeyKey})
       router.refresh()
     } catch (error) {
-        toast({
-          title: 'Error Revoking your API Key..!!',
-          message: 'Please Try Again later.',
-          type: 'error',
-        })
+      toast({
+        title: 'Error revoking your API Key..!!',
+        message: 'Please Try again later.',
+        type: 'error',
+      })
     } finally {
       setIsRevoking(false)
     }
@@ -78,8 +78,9 @@ const ApiKeyOptions: FC<ApiKeyOptionsProps> = ({ apiKeyId, apiKeyKey }) => {
         <DropdownMenuItem
           onClick={() => {
             navigator.clipboard.writeText(apiKeyKey)
+
             toast({
-              title: 'Copied',
+              title: 'Copied!',
               message: 'API Key copied to Clipboard',
               type: 'success',
             })
@@ -98,4 +99,5 @@ const ApiKeyOptions: FC<ApiKeyOptionsProps> = ({ apiKeyId, apiKeyKey }) => {
     </DropdownMenu>
   )
 }
+
 export default ApiKeyOptions
