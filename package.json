@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "heroku-postbuild": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
