@@ -50,7 +50,7 @@ const RequestApiKey: FC<RequestApiKeyProps> = ({}) => {
         <LargeHeading className='text-center'>
           Request your API Key
         </LargeHeading>
-        <Paragraph>You haven&apos;t requested an API Key yet</Paragraph>
+        <Paragraph>You haven&apos;t requested an API Key Yet</Paragraph>
       </div>
       <form
         onSubmit={createNewApiKey}
